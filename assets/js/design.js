@@ -107,8 +107,8 @@ $(document).ready( function() {
     tagName: 'li',
     
     events: {
-      "mouseover": "mouseover_event",
-      "mouseout": "mouseout_event",
+      "mouseenter": "mouseover_event",
+      "mouseleave": "mouseout_event",
       "click": "click_event"
     },
     
@@ -124,11 +124,13 @@ $(document).ready( function() {
       return this;
     },
     
-    mouseover_event: function() {
-      $(this.el).find( '.image-thumb-gloss' ).hide();
+    mouseover_event: function( e ) {
+      console.log( 'mouseover called' );
+      $(this.el).find( '.image-thumb-gloss' ).hide().stop(true);
     },
     
-    mouseout_event: function() {
+    mouseout_event: function( e ) {
+      console.log( 'mouseout called' );
       $(this.el).find( '.image-thumb-gloss' ).fadeIn( 500 );
     },
     
@@ -189,6 +191,7 @@ $(document).ready( function() {
               loaded++;
               if( loaded == design_menu_lis.length - 1 ) {
                 $('#ajax-loader').remove();
+                $(that.el).find( 'h1#design-title' ).show();
                 render_recursively = function( indices ) {
                   if( indices.length > 0 ) {
                     var rando = Math.floor( Math.random() * indices.length );
@@ -246,10 +249,11 @@ $(document).ready( function() {
     },
     
     mouseover_event: function() {
-      $(this.el).find( 'h1#design-title' ).hide();
+      $(this.el).find( 'h1#design-title' ).hide().remove();
     },
     
     mouseout_event: function() {
+      $('#design-nav').prepend( '<h1 id="design-title">Design</h1>');
       $(this.el).find( 'h1#design-title' ).fadeIn( 250 );
     },
     

@@ -135,6 +135,7 @@ p
         height: 500px
         h1#design-title
           color: white
+          display: none
           font-size: 200px
           line-height: 500px
           margin: 0
@@ -155,6 +156,7 @@ p
             position: absolute
             width: 125px
             height: 125px
+            z-index: 0
             .image-thumb-gloss
               background-color: transparent
               background-color: $black
@@ -167,6 +169,9 @@ p
               height: 125px
               z-index: 1
             img.thumb
+              position: absolute
+              top: 0
+              left: 0
               width: 125px
               height: 125px
   nav#primary-nav

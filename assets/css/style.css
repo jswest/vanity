@@ -110,6 +110,7 @@ p {
         height: 500px; }
         #page #content-wrapper .content nav#design-nav h1#design-title {
           color: white;
+          display: none;
           font-size: 200px;
           line-height: 500px;
           margin: 0;
@@ -129,7 +130,8 @@ p {
             display: none;
             position: absolute;
             width: 125px;
-            height: 125px; }
+            height: 125px;
+            z-index: 0; }
             #page #content-wrapper .content nav#design-nav ul#design-menu li .image-thumb-gloss {
               background-color: transparent;
               background-color: black;
@@ -142,6 +144,9 @@ p {
               height: 125px;
               z-index: 1; }
             #page #content-wrapper .content nav#design-nav ul#design-menu li img.thumb {
+              position: absolute;
+              top: 0;
+              left: 0;
               width: 125px;
               height: 125px; }
   #page nav#primary-nav {
